@@ -1,0 +1,1 @@
+Dentro alla cartella proveupload è presente un file esempio per l'importazione dei dati

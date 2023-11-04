@@ -1,0 +1,3 @@
+ALTER TABLE `classe` CHANGE `id_docente` `id_docente` INT(11) NULL;
+
+INSERT INTO `classe` (`id`, `id_docente`, `sezione`, `anno`) VALUES (NULL, NULL, 'A', '1'), (NULL, NULL, 'B', '1');
