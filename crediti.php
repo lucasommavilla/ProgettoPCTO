@@ -44,10 +44,6 @@
           </li>
           <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span data-feather="check"></span>
-              Marco Mattei
-          </li>
-          <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span data-feather="check"></span>
               Luca Sommavilla
           </li>
           </br>
