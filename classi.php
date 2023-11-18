@@ -90,22 +90,22 @@
                     echo '<th ><input class="btn btn-sm" style="background-color:#252526; color:#ffffff" type="submit" name="ordinaAnno" value="Anno"/>Anno</th>';
                     echo '<th ><input class="btn btn-sm" style="background-color:#252526; color:white" type="submit" name="ordinaCognome" value="Coordinatore"/></th>';
                     //echo '<th scope="col"><input class="btn" style="background-color:#252526; color:white" type="submit" name="ordinaDatanascita" value="Data Nascita"/></th>';
-                    echo '<th ><input class="btn btn-sm" style="background-color:#252526; color:white" type="submit" name="ordinaCitta" value="ID coordinatore"/></th>';
+                    //echo '<th ><input class="btn btn-sm" style="background-color:#252526; color:white" type="submit" name="ordinaCitta" value="ID coordinatore"/></th>';
                     //echo '<th scope="col"><input class="btn" style="background-color:#252526; color:white" type="submit" name="ordinaIndirizzo" value="Indirizzo"/></th>';
                     //echo '<th scope="col"><input class="btn" style="background-color:#252526; color:white" type="submit" name="ordinaCodicefiscale" value="Codice Fiscale"/></th>';
                     echo "</tr>";
                    while($row=$result->fetch_assoc()){
                             if(is_null($row['id_docente'])){
                                    $docente="------";
-                                   $id_coordinatore="------";
+                                   //$id_coordinatore="------";
                               }
                             else{
                                    $docente=''.$row['nome'];
                                    $docente.=' '.$row['cognome'];
-                                   $id_coordinatore="".$row['id_docente'];
+                                   //$id_coordinatore="".$row['id_docente'];
                               }
                               
-                              echo'<tr id="'.$row['id'].'"><td><a href="classi-dettaglio.php?id='.htmlspecialchars($row["id"]).'"><span data-feather="edit"></span></a></td><td><a href=studenti.php?classe='.$row['sezione'].'><span data-feather="users"></span></a></td><td>'.$row['sezione'].'</td><td>'.$row['anno'].'</td><td>'.$docente.'</td><td>'.$id_coordinatore.'</td></tr>';
+                              echo'<tr id="'.$row['id'].'"><td><a href="classi-dettaglio.php?id='.htmlspecialchars($row["id"]).'"><span data-feather="edit"></span></a></td><td><a href=studenti.php?classe='.$row['sezione'].'><span data-feather="users"></span></a></td><td>'.$row['sezione'].'</td><td>'.$row['anno'].'</td><td>'.$docente.'</td><td>'/*.$id_coordinatore.'</td></tr>'*/;
       } 
 
 
