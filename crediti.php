@@ -40,7 +40,7 @@
             </li>
           <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span data-feather="check"></span>
-              Alessandro Busatto
+              Alessandro Busato
           </li>
           <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span data-feather="check"></span>
