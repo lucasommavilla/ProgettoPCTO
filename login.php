@@ -105,9 +105,9 @@ if (isset($_POST["login"])) {
                            </div>
                            <a class="small text-muted" href="#!">Password dimenticata?</a>
                            <p class="mb-5 pb-lg-2" style="color: #393f81;"></p>
-                           © 2022 Copyright: Max Planck
+                           © 2023 Copyright: Max Planck
                            <br />
-                           Credits: Mariotto & Marsura Francesco
+                           Credits: Luca Sommavilla
                         </form>
                      </div>
                   </div>
