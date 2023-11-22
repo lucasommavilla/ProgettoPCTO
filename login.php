@@ -107,7 +107,7 @@ if (isset($_POST["login"])) {
                            <p class="mb-5 pb-lg-2" style="color: #393f81;"></p>
                            © 2023 Copyright: Max Planck
                            <br />
-                           Credits: Luca Sommavilla
+                           Credits: Luca Sommavilla, Alessandro Busatto & </br> Tommaso Bordignon
                         </form>
                      </div>
                   </div>
