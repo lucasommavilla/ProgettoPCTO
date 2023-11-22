@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: db
--- Creato il: Ott 28, 2023 alle 09:52
--- Versione del server: 8.0.32
--- Versione PHP: 8.1.17
+-- Host: localhost
+-- Creato il: Nov 22, 2023 alle 12:57
+-- Versione del server: 8.1.0
+-- Versione PHP: 8.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,8 +44,7 @@ CREATE TABLE `assegnazione` (
 --
 
 INSERT INTO `assegnazione` (`id`, `id_alunno`, `id_azienda`, `id_docente_tutor`, `id_azienda_tutor`, `Commento`, `data_inizio`, `data_fine`, `tutor`) VALUES
-(3, 4, 2, 13, 14, '', '2022-02-09', '2022-02-09', ''),
-(4, 100, 1, 0, 0, 'cgn', '2022-05-23', '2022-06-17', 'ngv');
+(3, 4, 2, 13, 14, '', '2022-02-09', '2022-02-09', '');
 
 -- --------------------------------------------------------
 
@@ -54,44 +53,44 @@ INSERT INTO `assegnazione` (`id`, `id_alunno`, `id_azienda`, `id_docente_tutor`,
 -- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `attestato` (
-`anno` varchar(9)
-,`cap_az` int
-,`cap_res_al` varchar(5)
-,`cod_fiscale_al` varchar(16)
-,`codice_fiscale_az` varchar(100)
+`nome_al` varchar(80)
 ,`cognome_al` varchar(80)
-,`cognome_ta` varchar(80)
-,`cognome_ts` varchar(80)
-,`comune_az` varchar(100)
-,`conv_protocollo` varchar(50)
-,`data_conv` date
-,`data_fine` date
-,`data_inizio` date
 ,`data_nascita` date
-,`fine_mattina` varchar(50)
-,`fine_pomeriggio` varchar(50)
-,`id_assegnazione` int
-,`indirizzo_az` varchar(100)
-,`indirizzo_res_al` varchar(100)
-,`inizio_mattina` varchar(50)
-,`inizio_pomeriggio` varchar(50)
-,`leg_comune_az` varchar(50)
-,`leg_indirizzo_az` varchar(100)
+,`cod_fiscale_al` varchar(16)
+,`telefono_al` varchar(13)
 ,`mail_al` varchar(100)
-,`mail_az` varchar(200)
-,`mail_ta` varchar(100)
-,`mail_ts` varchar(100)
-,`nome_al` varchar(80)
-,`nome_az` varchar(100)
-,`nome_cognome_ta` varchar(100)
-,`nome_ta` varchar(80)
-,`nome_ts` varchar(80)
+,`cap_res_al` varchar(5)
+,`indirizzo_res_al` varchar(100)
 ,`residenza_al` varchar(100)
 ,`sezione` varchar(10)
-,`telefono_al` varchar(13)
+,`anno` varchar(9)
+,`nome_az` varchar(100)
+,`indirizzo_az` varchar(100)
+,`cap_az` int
+,`comune_az` varchar(100)
+,`leg_indirizzo_az` varchar(100)
+,`leg_comune_az` varchar(50)
+,`codice_fiscale_az` varchar(100)
+,`nome_cognome_ta` varchar(100)
 ,`telefono_az` varchar(50)
-,`telefono_ta` varchar(13)
+,`mail_az` varchar(200)
+,`data_conv` date
+,`conv_protocollo` varchar(50)
+,`inizio_mattina` varchar(50)
+,`fine_mattina` varchar(50)
+,`inizio_pomeriggio` varchar(50)
+,`fine_pomeriggio` varchar(50)
+,`data_inizio` date
+,`data_fine` date
+,`nome_ts` varchar(80)
+,`cognome_ts` varchar(80)
 ,`telefono_ts` varchar(13)
+,`mail_ts` varchar(100)
+,`nome_ta` varchar(80)
+,`cognome_ta` varchar(80)
+,`telefono_ta` varchar(13)
+,`mail_ta` varchar(100)
+,`id_assegnazione` int
 );
 
 -- --------------------------------------------------------
@@ -143,13 +142,12 @@ CREATE TABLE `azienda` (
 --
 
 INSERT INTO `azienda` (`id`, `id_docente`, `n_informatici`, `n_telecomunicazioni`, `n_elettronici`, `n_automazioni`, `n_liceo`, `n_totale`, `denominazione_azienda`, `settore`, `indirizzo`, `cap`, `comune`, `referente_aziendale`, `tutor_aziendale`, `telefono`, `inizioam`, `fineam`, `iniziopm`, `finepm`, `email`, `sito`, `n_dipendenti`, `settore_attivita`, `leg_denominazioneazienda`, `leg_via`, `leg_comune`, `leg_nomecognome`, `leg_datanascita`, `leg_comunenascita`, `leg_iva`, `rapleg_convenzioneprotocolo`, `rapleg_codicefiscale`, `rapleg_convenzionedata`, `commento`) VALUES
-(1, 0, 2, 0, 0, 0, 0, 0, 'ABAR SRL', 'INFORMATICO', 'Via Senatore Fabbri 60', 31027, 'Spresiano (TV)', 'Alvise Piccoli', 'Alvise Piccoli', '0422 880820 / 3939261440', '8.00', '12.00', '13.30', '17.30', 'info@abar.it', 'www.abar.it', 1, 'servizi informatici', 'ABAR SRL', 'Via Senatore Fabbri 60', 'Spresiano (TV)', 'Davide Scantamburlo', '1979-01-31', 'Treviso (TV)', '4271680268', '3279/C24D', 'SCNDVD73A31L407N', '2019-05-04', ''),
+(1, 290, 2, 0, 0, 0, 0, 0, 'ABAR SRL', 'INFORMATICO', 'Via Senatore Fabbri 60', 31027, 'Spresiano (TV)', 'Alvise Piccoli', 'Alvise Piccoli', '0422 880820 / 3939261440', '8.00', '12.00', '13.30', '17.30', 'info@abar.it', 'www.abar.it', 1, 'servizi informatici', 'ABAR SRL', 'Via Senatore Fabbri 60', 'Spresiano (TV)', 'Davide Scantamburlo', NULL, 'Treviso (TV)', '4271680268', '3279/C24D', 'SCNDVD73A31L407N', '2019-05-04', ''),
 (2, 0, 0, 0, 0, 0, 0, 0, 'ACQUA MINERALE SAN BENEDETTO SPA', 'INFORMATICO', 'Viale Kennedy 65', 30037, 'Scorzè (VE)', 'Giuriato Alesio', 'Ballarin Michele', '041 5846494', '8.30', '12.30', '13.30', '17.30', 'alessio.giuriato@sanbenedetto.it', 'Industrie alimentari e delle bevande', 0, '', 'ACQUA MINERALE SAN BENEDETTO SPA', 'Viale Kennedy 65', 'Scorzè (VE)', 'Pisano Luca', '1963-10-01', 'Chieri (TO)', '00593710247', '3279/C24D', 'PSNLCU63R01C627J', '2019-05-04', ''),
 (3, 0, 0, 1, 1, 0, 0, 0, 'ADFWEB SRL', 'INFORMATICO', 'V.Franchini 1', 31010, 'Villorba (TV)', 'Dalla Torre Alessandro', 'Comacchio Alex', '0438 309131', '8.30', '12.00', '13.30', '18.00', 'info@adfweb.com   a.dallatorre@adfweb.com', 'www.adfweb.com', 8, 'produz. schede elettroniche', 'ADFWEB SRL', 'V.Franchini 1', 'Villorba (TV)', 'Alessandro Dalla Torre', '1971-11-23', 'Conegliano (TV)', '3853620262', '3279/C24D', 'DLLLSN71S23C357M', '2019-05-04', ''),
 (4, 0, 0, 0, 0, 0, 0, 0, 'ALDEBRA SPA', 'INFORMATICO', 'V.Luigi Einaudi 25', 31030, 'Casier (TV)', 'Zamberlam Flavio', 'Zamberlam Flavio', '0422 559200', '', '', '', '', 'info@aldebra.com', 'www.aldebra.com', 0, 'servizi informatici', 'ALDEBRA SPA', 'V.Luigi Einaudi 25', 'Casier (TV)', 'Giordano Tamanini', '1952-11-08', 'Trento (TN)', '1170810228', '278/C24D', 'TMNGDN52S08L378G', '2017-01-19', ''),
 (5, 0, 0, 0, 0, 0, 0, 0, 'ALGORITMO SRL', 'INFORMATICO', 'V.le della Repubblica 193/i', 31100, 'Treviso (TV)', 'Pegoraro Andrea', 'Pegoraro Andrea', '0422 541149', '', '', '', '', 'info@algoritmoautomazioni.com', 'algoritmoautomazioni.com', 2, 'servizi informatici', 'ALGORITMO SRL', 'V.le della Repubblica 193/i', 'Treviso (TV)', 'Federico Cadamuro', '1967-10-06', 'Treviso (TV)', '3131070264', '213/C24D', 'CDMFRC67R06L407T', '2017-01-17', ''),
 (6, 0, 0, 0, 0, 0, 0, 0, 'ALPHA SISTEMI SRL', 'INFORMATICO', 'V. Ghirada 2', 31100, 'Treviso (TV)', 'Aggujaro Alberto', 'Aggujaro Alberto', '340 9044185', '', '', '', '', 'info@alphasistemi.it', 'www.hr-alphasistemi.it', 28, 'servizi informatici', 'ALPHA SISTEMI SRL', 'V. Ghirada 2', 'Treviso (TV)', 'Federico Cadamuro', '1967-10-06', 'Treviso (TV)', '1834310599', '7888/C24', 'CDMFRC67R06L407T', '2016-12-27', ''),
-(7, 0, 0, 0, 0, 0, 0, 0, 'ALTERNATIVA AMBIENTE COOPERATIVA', 'INFORMATICO', 'V. Callegari 32', 31030, 'Carbonera (TV)', 'Bonomo Barbara', 'Bonomo Barbara', '0422 350401', '8.30', '12.30', '14.30', '18.30', 'psicoalternativa@cooperativa-alternativa.it', 'www.cooperativa-alternativa.it', 0, 'servizi e ambiente', 'ALTERNATIVA AMBIENTE COOPERATIVA', 'V. Callegari 32', 'Carbonera (TV)', 'Marco Toffolo', '1970-09-12', 'Oderzo (TV)', '02507670269', '3279/C24D', 'TFFMRC70912F999G', '2019-05-04', ''),
 (8, 0, 0, 0, 0, 0, 0, 0, 'ASITRON Srl', 'INFORMATICO', 'Via G. Poli 50', 31032, 'Casale sul Sile (TV)', 'Bellio Sergio', 'Bellio Sergio', '041/2689076', '8.00', '12.00', '13.00', '17.00', 'amministrazione@asitron.it', 'www.asitron.it', 0, '', 'ASITRON Srl', 'Via G. Poli 50', 'Casale sul Sile (TV)', 'Sergio Bellio', '1961-05-27', 'Torino ', '04998930269', '7174/C24D', '', '2021-05-20', ''),
 (9, 0, 1, 0, 0, 0, 0, 0, 'ETHICA CONSULTING S.P.A', 'INFORMATICO', 'V.le Della Repubblica 12/I ', 31020, 'Villorba (TV)', '', '', '0422 910300', '9.30', '13.00', '14.00', '18.00', '', 'www.altevie.com', 160, 'servizi informatici', 'ETHICA CONSULTING S.P.A', 'V.le Della Repubblica 12/I ', 'Villorba (TV)', 'Valentino Girardi', '1969-11-12', 'Montebelluna (TV)', '3765320266', '3279/C24D', 'GRRVNT69S12F443L', '2019-05-04', ''),
 (10, 0, 0, 0, 0, 0, 0, 0, 'APIEL SRL', 'INFORMATICO', 'v.Francesco Guardi 35', 31038, 'Paese (TV)', '', '', '0422 480902', '8.00', '12.30', '14.00', '17.30', 'apiel@apiel.it', 'www.apiel.it', 1, 'servizi informatici', 'APIEL SRL', 'v.Francesco Guardi 35', 'Paese (TV)', 'Maurizio Mattiuzzo', '1950-12-10', 'Treviso (TV)', '03610750261', '3279/C24D', 'MTTMRZ63D09L407X', '2019-05-04', ''),
@@ -258,9 +256,9 @@ INSERT INTO `azienda` (`id`, `id_docente`, `n_informatici`, `n_telecomunicazioni
 (113, 0, 0, 0, 0, 0, 0, 0, 'START INFORMATICA', 'INFORMATICO', 'Via L. Einaudi 7', 31030, 'Casier (TV)', 'Bellio Massimo', 'Bellio Massimo', '0422 825222/3471063880', '9.00', '13.00', '14.00', '18.00', 'massimiliano@startinformaticasrl.it', '', 10, 'ateco 620909', 'START INFORMATICA', 'Via L. Einaudi 7', 'Casier (TV)', 'Massimo Bellio', '1967-11-04', 'VENEZIA (VE)', '03742490265', '14168/C24', 'BLLMSM67S04L736K', '2020-11-10', ''),
 (114, 0, 0, 0, 0, 0, 0, 0, 'STESI  SRL', 'INFORMATICO', 'Vic.lo Cadore 29/7', 31020, 'S. Vendemiano (TV)', '', '', '0438/403271', '', '', '', '', 'info@stesi.it', 'www.stesi.it', 0, '', 'STESI  SRL', 'Vic.lo Cadore 29/7', 'S. Vendemiano (TV)', 'Cuscio Stefano', '1966-03-30', 'Adria', '04361220264', '2275/C24D', 'CDCSFN66C30A059K', '2017-05-17', ''),
 (115, 0, 0, 0, 0, 0, 0, 0, 'STUDIO 3F SRL', 'INFORMATICO', 'p.ta Unità d Italia 13/1', 30010, 'Camponogara (VE)', 'Ferrini Andrea', 'Ferrini Andrea', '041 5100613', '', '', '', '', 'info@studio3f.it', 'www.3fwebtech.it', 3, 'servizi informatici', 'STUDIO 3F SRL', 'p.ta Unità d Italia 13/1', 'Camponogara (VE)', 'Ferrini Andrea', '1978-06-10', 'Dolo (VE)', '4506730268', '343/C24D', 'FRRNDR78H10D325O', '2017-01-23', ''),
-(116, 0, 0, 0, 0, 0, 0, 0, 'SVILUPPO PROGETTI SOCIETA  COOPERATIVA', 'INFORMATICO', 'Via Pezza alta10/a', 31046, 'Oderzo (TV)', 'Nardini Riccardo', 'Furlan Lorenzo', '0422 853611', '9.00', '13.00', '14.00', '18.00', 'contabilità@sviluppoprogetti.com', '', 10, 'Ateco 829999, Istat 030129', 'SVILUPPO PROGETTI SOCIETA  COOPERATIVA', 'Via Pezza alta10/a', 'Oderzo (TV)', 'Snidero Paolo', '1953-10-09', 'Udine (UD)', '01326850938', '14576/C24', 'SNDPLA53R09L483B', '2020-11-17', '');
+(116, 0, 0, 0, 0, 0, 0, 0, 'SVILUPPO PROGETTI SOCIETA  COOPERATIVA', 'INFORMATICO', 'Via Pezza alta10/a', 31046, 'Oderzo (TV)', 'Nardini Riccardo', 'Furlan Lorenzo', '0422 853611', '9.00', '13.00', '14.00', '18.00', 'contabilità@sviluppoprogetti.com', '', 10, 'Ateco 829999, Istat 030129', 'SVILUPPO PROGETTI SOCIETA  COOPERATIVA', 'Via Pezza alta10/a', 'Oderzo (TV)', 'Snidero Paolo', '1953-10-09', 'Udine (UD)', '01326850938', '14576/C24', 'SNDPLA53R09L483B', '2020-11-17', ''),
+(117, 0, 0, 0, 0, 0, 0, 0, 'SYSDATA ITALIA SPA', 'INFORMATICO', 'v. De  Carracci 13', 40100, 'Bologna (BO)', 'Ragusa Valerio', 'Mameli Walter', '051 4144911', '9.00', '13.00', '14.00', '18.00', 'hr@sysdata.it', 'www.sysdata.it', 150, 'servizi informatici (Ateco 62.02.00)', 'SYSDATA ITALIA SPA', 'V. Bissolati, 4', 'Mestre (VE)', 'Gianmarco Vecchione', '1977-07-10', 'Roma (RM)', '02454011202', '7903/C24', 'VCCGMR77L10H501E', '2016-12-27', '');
 INSERT INTO `azienda` (`id`, `id_docente`, `n_informatici`, `n_telecomunicazioni`, `n_elettronici`, `n_automazioni`, `n_liceo`, `n_totale`, `denominazione_azienda`, `settore`, `indirizzo`, `cap`, `comune`, `referente_aziendale`, `tutor_aziendale`, `telefono`, `inizioam`, `fineam`, `iniziopm`, `finepm`, `email`, `sito`, `n_dipendenti`, `settore_attivita`, `leg_denominazioneazienda`, `leg_via`, `leg_comune`, `leg_nomecognome`, `leg_datanascita`, `leg_comunenascita`, `leg_iva`, `rapleg_convenzioneprotocolo`, `rapleg_codicefiscale`, `rapleg_convenzionedata`, `commento`) VALUES
-(117, 0, 0, 0, 0, 0, 0, 0, 'SYSDATA ITALIA SPA', 'INFORMATICO', 'v. De  Carracci 13', 40100, 'Bologna (BO)', 'Ragusa Valerio', 'Mameli Walter', '051 4144911', '9.00', '13.00', '14.00', '18.00', 'hr@sysdata.it', 'www.sysdata.it', 150, 'servizi informatici (Ateco 62.02.00)', 'SYSDATA ITALIA SPA', 'V. Bissolati, 4', 'Mestre (VE)', 'Gianmarco Vecchione', '1977-07-10', 'Roma (RM)', '02454011202', '7903/C24', 'VCCGMR77L10H501E', '2016-12-27', ''),
 (118, 0, 0, 0, 0, 0, 0, 0, 'TECHGEST SAS DI GIRARDI STEFANO & C.', 'INFORMATICO', 'Via Schiavonesca Priula 95', 31044, 'Montebelluna (TV)', 'Girardi Stefano', 'Girardi Stefano', '0423 605112', '', '', '', '', 'amministrazione@techqest.it', '', 6, 'altri servizi non specificati', 'TECHGEST SAS DI GIRARDI STEFANO & C.', 'Via Schiavonesca Priula 95', 'Montebelluna (TV)', 'Girardi Stefano', '1976-08-10', 'Montebelluna (TV)', '03943070262', '', 'FRRSFN76M10F443W', '0000-00-00', ''),
 (119, 0, 0, 0, 0, 0, 0, 0, 'TESY SOFTWARE SRL', 'INFORMATICO', 'v. Reginato 3', 31100, 'Treviso (TV)', 'Luca Polesello', 'Luca Polesello', '0422 230424', '', '', '', '', 'ennio.zanuccoi@tesysoftware.com', 'www.tesysoftware.net', 60, 'servizi informatici', 'TESY SOFTWARE SRL', 'v. Reginato 3', 'Treviso (TV)', 'Ennio Zanucca', '1954-08-04', 'Venezia (VE)', '4188620266', '7890/C24', 'ZNCNNE51M04L736J', '2016-12-27', ''),
 (120, 0, 0, 0, 0, 0, 0, 0, 'TEAM23 S.R.L.', 'INFORMATICO', 'Via Solferino 5/3', 31020, 'Carità di Villorba (TV)', 'Etzel Lava', 'Etzel Lava', '0422 1833754', '9.00', '13.30', '14.00', '17.30', 'info@team23.it', 'https://team23.it/', 0, '', 'TEAM23 S.R.L.', 'V. Strada  la Bassa, 15', 'Treviso (TV)', 'Etzel Lava', '1979-08-24', 'Conegliano (TV)', '04908940267', '7365/C24D', 'LVATZL79M24C957X', '2021-05-24', ''),
@@ -375,9 +373,9 @@ INSERT INTO `azienda` (`id`, `id_docente`, `n_informatici`, `n_telecomunicazioni
 (229, 0, 0, 0, 0, 0, 0, 0, 'ROGER TECNOLOGY SRL', 'AUTOMAZIONE', 'Via Botticelli 8', 31021, 'Mogliano Veneto (TV)', 'Florian Primo', 'Florian Manuel', '041 5937023', '', '', '', '', 'amministrazione@rogertechnology.it', '', 60, 'Fabbricazione di motori', 'ROGER TECNOLOGY SRL', 'Via Botticelli 8', 'Mogliano Veneto (TV)', 'Florian Dino', '1959-09-27', 'Silea (TV)', '01612340263', '7163/C24D', 'FLRDNI59P27F116Y', '2017-01-27', ''),
 (230, 0, 0, 0, 0, 0, 0, 0, 'PURARCHITETTURA', 'AUTOMAZIONE', 'Via Treviso19', 31059, 'Zero Branco (TV)', 'Barbazza Nicola', '', '0422 97436', '', '', '', '', 'conctat@purarchitettura.it', '', 0, 'Studio di progettazione', 'PURARCHITETTURA', 'Via Treviso19', 'Zero Branco (TV)', 'Barbazza Nicola', '0000-00-00', '', '', '', '', '2017-01-28', ''),
 (231, 0, 0, 0, 0, 0, 0, 0, 'Sirio Srl', 'AUTOMAZIONE', 'Via Nuova Trevigiana Lughignano 124', 31032, 'CASALE SUL SILE (TV)', 'Marian Adriano', 'Marian Adriano', '0422822506', '8.00', '12.00', '13.30', '17.30', 'amministrazione@siriotreviso.it', '', 50, 'quadri elettrici, PLC', 'SIRIO SRL', 'Via Nuova Trevigiana Lughignano, 124', 'Casale sul Sile (TV)', 'Zago Paolo', '1962-06-26', 'Treviso (TV)', '03315340269', '7158/C24D', 'ZGAPLA62H26L407H', '2017-01-29', ''),
-(232, 0, 0, 0, 0, 0, 0, 0, 'S. G. ELETTRONICA SRL', 'AUTOMAZIONE', 'Via Ferrari 28', 30037, 'Scorzè (VE)', 'Zottino Sandro', 'Zottino Sandro', '041 5841973', '', '', '', '', 'info@almot.it', '', 5, '', 'S. G. ELETTRONICA SRL', 'Via Ferrari 28', 'Scorzè (VE)', 'Zottino Sandro', '1959-02-24', 'Bolzano (BZ)', '02272310273', '1994/C24D', 'ZTTSDR59B24A952G', '2017-01-30', '');
+(232, 0, 0, 0, 0, 0, 0, 0, 'S. G. ELETTRONICA SRL', 'AUTOMAZIONE', 'Via Ferrari 28', 30037, 'Scorzè (VE)', 'Zottino Sandro', 'Zottino Sandro', '041 5841973', '', '', '', '', 'info@almot.it', '', 5, '', 'S. G. ELETTRONICA SRL', 'Via Ferrari 28', 'Scorzè (VE)', 'Zottino Sandro', '1959-02-24', 'Bolzano (BZ)', '02272310273', '1994/C24D', 'ZTTSDR59B24A952G', '2017-01-30', ''),
+(233, 0, 0, 0, 0, 0, 0, 0, 'SGE SRL', 'AUTOMAZIONE', 'V. Terraglio  263', 31022, 'Preganziol (TV)', 'Salvadori Sergio', 'Salvadori Sergio', '0422 490651', '8.30', '12.30', '14.00', '18.00', 'salvadori@sgetreviso.it', 'www.sgesrl.com', 17, 'Servizi Information Tecnology', 'SGE SRL', 'V. Terraglio  263', 'Preganziol (TV)', 'Sergio Salvadori', '1955-09-05', 'Casale sul sile (TV)', '01675950263', '3279/C24D', 'SLVSRG55P05B879R', '2017-01-31', '');
 INSERT INTO `azienda` (`id`, `id_docente`, `n_informatici`, `n_telecomunicazioni`, `n_elettronici`, `n_automazioni`, `n_liceo`, `n_totale`, `denominazione_azienda`, `settore`, `indirizzo`, `cap`, `comune`, `referente_aziendale`, `tutor_aziendale`, `telefono`, `inizioam`, `fineam`, `iniziopm`, `finepm`, `email`, `sito`, `n_dipendenti`, `settore_attivita`, `leg_denominazioneazienda`, `leg_via`, `leg_comune`, `leg_nomecognome`, `leg_datanascita`, `leg_comunenascita`, `leg_iva`, `rapleg_convenzioneprotocolo`, `rapleg_codicefiscale`, `rapleg_convenzionedata`, `commento`) VALUES
-(233, 0, 0, 0, 0, 0, 0, 0, 'SGE SRL', 'AUTOMAZIONE', 'V. Terraglio  263', 31022, 'Preganziol (TV)', 'Salvadori Sergio', 'Salvadori Sergio', '0422 490651', '8.30', '12.30', '14.00', '18.00', 'salvadori@sgetreviso.it', 'www.sgesrl.com', 17, 'Servizi Information Tecnology', 'SGE SRL', 'V. Terraglio  263', 'Preganziol (TV)', 'Sergio Salvadori', '1955-09-05', 'Casale sul sile (TV)', '01675950263', '3279/C24D', 'SLVSRG55P05B879R', '2017-01-31', ''),
 (234, 0, 0, 0, 0, 0, 0, 0, 'SICURINGROS DI LUCA DONATO', 'AUTOMAZIONE', 'Via Postumia 26/D', 31055, 'Quinto di Treviso (TV)', 'Donato Luca', 'Donato Luca', '0422 260826', '8.00', '12.00', '14.00', '18.00', 'amministrazione@sicuringros.com', '', 5, 'Impianti antifurto', 'SICURINGROS DI LUCA DONATO', 'Via Postumia 26/D', 'Quinto di Treviso (TV)', 'Donato Luca', '1964-05-03', 'Treviso (TV)', '03177690264', '3279/C24D', 'DNTLCU64E03L407M', '2017-02-01', ''),
 (235, 0, 0, 0, 0, 0, 0, 0, 'SINTHESI ENGINEERING S.R.L.', 'AUTOMAZIONE', 'Via Mira 20/8', 31053, 'Pieve di Soligo (TV)', 'Canal Mauro', 'Canal Mauro', '0438 82216', '8.30', '12.30', '14.00', '18.00', 'info@sinthesi.net', '', 10, '', 'SINTHESI ENGINEERING S.R.L.', 'V. Bellucci, 35', 'Farra di Soligo (TV)', 'Andreola Pierpaolo', '1970-11-08', 'Pieve di Soligo (TV)', '03930730266', '3279/C24D', 'NDRPPL 70S08G645Q', '2017-02-02', ''),
 (236, 0, 0, 0, 0, 0, 0, 0, 'SISTEC SRL', 'AUTOMAZIONE', 'Via Roveredo 20/b', 33170, 'Pordenone (PN)', 'De Vecchi Daniele', 'Da Re Luca', '0434 789511', '', '', '', '', 'sistec@sistec-pn.it', '', 20, 'Lavoraz. Materie plastiche', 'SISTEC SRL', 'Via Roveredo 20/b', 'Pordenone (PN)', 'De Vecchi Daniele', '1966-02-14', 'Svizzera', '01507090932', '3279/C24D', 'DVCDNL66B14Z133D', '2017-02-03', ''),
@@ -520,8 +518,9 @@ INSERT INTO `classe` (`id`, `id_docente`, `sezione`, `anno`) VALUES
 (5, NULL, '4BII', '2021/2022'),
 (6, NULL, '4CEA', '2021/2022'),
 (7, NULL, '4CII', '2021/2022'),
-(8, NULL, '4DAR', '2021/2022'),
-(9, NULL, '4DEA', '2021/2022');
+(8, 13, '4DAR', '2021/2022'),
+(9, NULL, '4DEA', '2021/2022'),
+(10, 290, '5BII', '2023/2024');
 
 -- --------------------------------------------------------
 
@@ -539,10 +538,9 @@ CREATE TABLE `classe_studente` (
 --
 
 INSERT INTO `classe_studente` (`idclasse`, `idpersona`) VALUES
-(6, 100),
 (1, 101),
 (4, 102),
-(2, 103),
+(-1, 103),
 (3, 104),
 (2, 105),
 (6, 106),
@@ -568,7 +566,6 @@ INSERT INTO `classe_studente` (`idclasse`, `idpersona`) VALUES
 (1, 126),
 (7, 127),
 (9, 128),
-(3, 129),
 (9, 130),
 (5, 131),
 (1, 132),
@@ -592,7 +589,7 @@ INSERT INTO `classe_studente` (`idclasse`, `idpersona`) VALUES
 (3, 150),
 (2, 151),
 (3, 152),
-(3, 153),
+(-1, 153),
 (7, 154),
 (2, 155),
 (5, 156),
@@ -725,7 +722,8 @@ INSERT INTO `classe_studente` (`idclasse`, `idpersona`) VALUES
 (2, 283),
 (4, 284),
 (5, 285),
-(2, 286);
+(2, 286),
+(10, 291);
 
 -- --------------------------------------------------------
 
@@ -766,7 +764,8 @@ CREATE TABLE `periodo_stage` (
 --
 
 INSERT INTO `periodo_stage` (`id`, `nome`, `data_inizio`, `data_fine`) VALUES
-(1, 'Maggio_Giugno', '2022-05-23', '2022-06-17');
+(1, 'PCTO-2022', '2022-05-23', '2022-06-17'),
+(2, 'PCTO-2023', '2023-05-22', '2023-06-18');
 
 -- --------------------------------------------------------
 
@@ -782,15 +781,15 @@ CREATE TABLE `persona` (
   `codicefiscale` varchar(16) NOT NULL,
   `sesso` char(1) NOT NULL,
   `cellulare` varchar(13) NOT NULL,
-  `login` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `al_matricola` varchar(20) NOT NULL,
-  `al_cittadinanza` varchar(30) NOT NULL,
+  `login` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `al_matricola` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `al_cittadinanza` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `cap` varchar(5) DEFAULT NULL,
-  `telefono` varchar(20) NOT NULL,
+  `telefono` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `email` varchar(100) NOT NULL,
-  `indirizzo` varchar(100) NOT NULL,
-  `residenza` varchar(100) NOT NULL,
+  `indirizzo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `residenza` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `provincia` varchar(2) DEFAULT NULL,
   `tut_idazienda` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -800,7 +799,7 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`id`, `nome`, `cognome`, `datanascita`, `codicefiscale`, `sesso`, `cellulare`, `login`, `password`, `al_matricola`, `al_cittadinanza`, `cap`, `telefono`, `email`, `indirizzo`, `residenza`, `provincia`, `tut_idazienda`) VALUES
-(0, 'null', 'null', '1000-01-01', '', '', '', 'adminpcto', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', NULL, '', '', '', '', NULL, NULL),
+(1, 'null', 'null', '1000-01-01', '', '', '', 'adminpcto', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', NULL, '', '', '', '', NULL, NULL),
 (4, 'andrea', 'cestaro', '2002-09-21', '', 'm', '', 'cestaro.andrea', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', '', NULL, NULL),
 (5, 'nicholas', 'darisi', '2022-02-17', '', 'm', '', 'darisi.nicholas', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', '', NULL, NULL),
 (6, 'ruize', 'lin', '2022-02-14', '', 'm', '', 'lin.ruize', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', '', NULL, NULL),
@@ -822,10 +821,9 @@ INSERT INTO `persona` (`id`, `nome`, `cognome`, `datanascita`, `codicefiscale`, 
 (23, '4CII', 'VENTILII', '1000-01-01', '', '', '', '', '', '', '', '', '', '', '', 'Lancenigo', NULL, NULL),
 (24, '4DII', 'PEDUTO', '1000-01-01', '', '', '', '', '', '', '', '', '', '', '', 'Lancenigo', NULL, NULL),
 (25, '4DIT', 'DAMIAN', '1000-01-01', '', '', '', '', '', '', '', '', '', '', '', 'Lancenigo', NULL, NULL),
-(100, 'DAVIDE', 'ANTONIOLI', NULL, '', '', '', 'antonioli.st.davide@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31020', '', 'antonioli.st.davide@maxplanck.edu.it', 'Via Cal di Breda 58/G', 'BREDA DI PIAVE', 'TV', NULL),
 (101, 'FILIPPO', 'BACCICHETTO', NULL, '', '', '', 'baccichetto.st.filippo@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31042', '', 'baccichetto.st.filippo@maxplanck.edu.it', 'VIA FRANCESCO BARACCA, 12A', 'SAN BIAGIO DI CALLALTA', 'TV', NULL),
 (102, 'ALESSANDRO', 'BALDASSO', NULL, '', '', '', 'baldasso.st.alessandro@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31030', '', 'baldasso.st.alessandro@maxplanck.edu.it', 'Via Chianni n. 31', 'CASIER', 'TV', NULL),
-(103, 'RICCARDO', 'BALDIN', NULL, '', '', '', 'baldin.st.riccardo@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31059', '', 'baldin.st.riccardo@maxplanck.edu.it', 'VIA SCHIAVON 5', 'ZERO BRANCO', 'TV', NULL),
+(103, 'RICCARDO', 'BALDIN', '2005-05-12', 'werg', '', '', 'baldin.st.riccardo@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31059', '', 'baldin.st.riccardo@maxplanck.edu.it', 'VIA SCHIAVON 5', 'ZERO BRANCO', 'TV', NULL),
 (104, 'ALESSANDRO', 'BANDIERA', NULL, '', '', '', 'bandiera.st.alessandro@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31100', '', 'bandiera.st.alessandro@maxplanck.edu.it', 'VIA BOTTENIGA 36', 'TREVISO', 'TV', NULL),
 (105, 'IVAN CLEDJ', 'BANDIERA', NULL, '', '', '', 'bandiera.st.ivancledj@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31040', '', 'bandiera.st.ivancledj@maxplanck.edu.it', 'VIA 25 APRILE, 17', 'GORGO AL MONTICANO', 'TV', NULL),
 (106, 'ALBERTO', 'BARBON', NULL, '', '', '', 'barbon.st.alberto@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31052', '', 'barbon.st.alberto@maxplanck.edu.it', 'Via Madonna delle Vittorie, 20', 'MASERADA SUL PIAVE', 'TV', NULL),
@@ -851,7 +849,6 @@ INSERT INTO `persona` (`id`, `nome`, `cognome`, `datanascita`, `codicefiscale`, 
 (126, 'ALBERTO', 'BORTOLI', NULL, '', '', '', 'bortoli.st.alberto@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31028', '', 'bortoli.st.alberto@maxplanck.edu.it', 'VIA BEATA G. STERNI 3/2', 'VAZZOLA', 'TV', NULL),
 (127, 'NICOLAS', 'BOTTOLI', NULL, '', '', '', 'bottoli.st.nicolas@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31052', '', 'bottoli.st.nicolas@maxplanck.edu.it', 'PIAZZA PAPA RONCALLI 2', 'MASERADA SUL PIAVE', 'TV', NULL),
 (128, 'MIRCO', 'BRANCHER', NULL, '', '', '', 'brancher.st.mirco@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31010', '', 'brancher.st.mirco@maxplanck.edu.it', 'Via Ungheresca Sud n. 28', 'MARENO DI PIAVE', 'TV', NULL),
-(129, 'GIANLUCA', 'BRIDDA', NULL, '', '', '', 'bridda.st.gianluca@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31021', '', 'bridda.st.gianluca@maxplanck.edu.it', 'via Torni 13', 'MOGLIANO VENETO', 'TV', NULL),
 (130, 'DAVIDE', 'BRUGNOTTO', NULL, '', '', '', 'brugnotto.st.davide1@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31030', '', 'brugnotto.st.davide1@maxplanck.edu.it', 'VIA PAPA RONCALLI  32', 'CARBONERA', 'TV', NULL),
 (131, 'ALFONSO', 'BUONOCORE', NULL, '', '', '', 'buonocore.st.alfonso@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31058', '', 'buonocore.st.alfonso@maxplanck.edu.it', 'via papa luciani', 'SUSEGANA', 'TV', NULL),
 (132, 'MICHELE IVO', 'CACCIATORE', NULL, '', '', '', 'cacciatore.st.micheleivo@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31055', '', 'cacciatore.st.micheleivo@maxplanck.edu.it', 'VICOLO MURER, 21', 'QUINTO DI TREVISO', 'TV', NULL),
@@ -875,7 +872,7 @@ INSERT INTO `persona` (`id`, `nome`, `cognome`, `datanascita`, `codicefiscale`, 
 (150, 'ALINA', 'CUTINOVA', NULL, '', '', '', 'cutinova.st.alina@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31100', '', 'cutinova.st.alina@maxplanck.edu.it', 'largo tre venezie, 1', 'TREVISO', 'TV', NULL),
 (151, 'LUCA', 'DAL BIANCO', NULL, '', '', '', 'dalbianco.st.luca@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31010', '', 'dalbianco.st.luca@maxplanck.edu.it', 'via vittoria 4/b', 'CIMADOLMO', 'TV', NULL),
 (152, 'GIACOMO', 'DAL MOLIN', NULL, '', '', '', 'dalmolin.st.giacomo@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31056', '', 'dalmolin.st.giacomo@maxplanck.edu.it', 'via longhin 128/a', 'RONCADE', 'TV', NULL),
-(153, 'SAMUELE', 'DALLAVA', NULL, '', '', '', 'dallava.st.samuele@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31052', '', 'dallava.st.samuele@maxplanck.edu.it', 'VIA CRISTOFORO COLOMBO,8', 'MASERADA SUL PIAVE', 'TV', NULL),
+(153, 'SAMUELE', 'DALLAVA', '2004-10-10', 'wrge', 'F', '', 'dallava.st.samuele@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31052', '', 'dallava.st.samuele@maxplanck.edu.it', 'VIA CRISTOFORO COLOMBO,8', 'MASERADA SUL PIAVE', 'TV', NULL),
 (154, 'LUCA', 'DE LAZZARI', NULL, '', '', '', 'delazzari.st.luca@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31100', '', 'delazzari.st.luca@maxplanck.edu.it', 'VIA G. BENZI, 43', 'TREVISO', 'TV', NULL),
 (155, 'GIACOMO', 'DE MARCHI', NULL, '', '', '', 'demarchi.st.giacomo@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31015', '', 'demarchi.st.giacomo@maxplanck.edu.it', 'F. Cristofoli 7', 'CONEGLIANO', 'TV', NULL),
 (156, 'RICCARDO', 'DE NINNO', NULL, '', '', '', 'deninno.st.riccardo@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31030', '', 'deninno.st.riccardo@maxplanck.edu.it', 'VIA ZERMANESE SUPERIORE 43', 'CASIER', 'TV', NULL),
@@ -1009,7 +1006,8 @@ INSERT INTO `persona` (`id`, `nome`, `cognome`, `datanascita`, `codicefiscale`, 
 (284, 'TOMMASO', 'ZAVARISE', NULL, '', '', '', 'zavarise.st.tommaso@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31100', '', 'zavarise.st.tommaso@maxplanck.edu.it', 'VIA S. ANTONINO 263/A', 'TREVISO', 'TV', NULL),
 (285, 'AYOUB', 'ZOUGGAGH', NULL, '', '', '', 'zouggagh.st.ayoub@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31100', '', 'zouggagh.st.ayoub@maxplanck.edu.it', 'Strada per castagnole n.40', 'TREVISO', 'TV', NULL),
 (286, 'ALESSANDRO', 'ZUCCARELLO', NULL, '', '', '', 'zuccarello.st.alessandro@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31020', '', 'zuccarello.st.alessandro@maxplanck.edu.it', 'VIA G. MARCONI 261/A', 'VILLORBA', 'TV', NULL),
-(287, '', '', NULL, '', '', '', 'ghebbo03', '66d2757d793954cb17569fbd5b715b16', '', '', NULL, '', '', '', '', NULL, NULL);
+(290, 'Salvatore', 'Pace', '1999-12-12', 'sazxa', 'm', '234', NULL, NULL, NULL, NULL, '', '', '', '', 'crotone', NULL, NULL),
+(291, 'Luca', 'Sommavilla', '2005-05-24', 'smmlcu05e24c111d', 'M', '3921187606', NULL, NULL, NULL, NULL, '', '', 'lucasomma7@gmail.com', '', 'Treviso', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1039,9 +1037,10 @@ INSERT INTO `persona_ruolo` (`idruolo`, `idpersona`) VALUES
 (1, 25),
 (2, 0),
 (2, 13),
+(2, 290),
 (3, 4),
 (3, 242),
-(4, 287);
+(3, 291);
 
 -- --------------------------------------------------------
 
@@ -1172,6 +1171,24 @@ ALTER TABLE `tutor_azienda`
 --
 ALTER TABLE `assegnazione`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT per la tabella `classe`
+--
+ALTER TABLE `classe`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT per la tabella `periodo_stage`
+--
+ALTER TABLE `periodo_stage`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT per la tabella `persona`
+--
+ALTER TABLE `persona`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=293;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
