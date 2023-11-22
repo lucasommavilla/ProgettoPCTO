@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Nov 22, 2023 alle 12:57
+-- Creato il: Nov 22, 2023 alle 14:17
 -- Versione del server: 8.1.0
 -- Versione PHP: 8.2.11
 
@@ -32,7 +32,7 @@ CREATE TABLE `assegnazione` (
   `id_alunno` int NOT NULL,
   `id_azienda` int NOT NULL,
   `id_docente_tutor` int NOT NULL,
-  `id_azienda_tutor` int NOT NULL,
+  `id_azienda_tutor` int DEFAULT NULL,
   `Commento` varchar(300) NOT NULL,
   `data_inizio` date NOT NULL,
   `data_fine` date NOT NULL,
@@ -581,7 +581,6 @@ INSERT INTO `classe_studente` (`idclasse`, `idpersona`) VALUES
 (6, 142),
 (7, 143),
 (6, 144),
-(3, 145),
 (3, 146),
 (6, 147),
 (8, 148),
@@ -765,7 +764,8 @@ CREATE TABLE `periodo_stage` (
 
 INSERT INTO `periodo_stage` (`id`, `nome`, `data_inizio`, `data_fine`) VALUES
 (1, 'PCTO-2022', '2022-05-23', '2022-06-17'),
-(2, 'PCTO-2023', '2023-05-22', '2023-06-18');
+(2, 'PCTO-2023', '2023-05-22', '2023-06-18'),
+(3, 'wh', '1212-12-12', '1213-12-12');
 
 -- --------------------------------------------------------
 
@@ -809,7 +809,7 @@ INSERT INTO `persona` (`id`, `nome`, `cognome`, `datanascita`, `codicefiscale`, 
 (10, 'matteo', 'pretto', '2022-02-01', '', 'm', '', 'pretto.matteo', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', '', NULL, NULL),
 (11, 'manuele', 'saccon', '2022-02-10', '', 'm', '', 'saccon.manuele', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', '', NULL, NULL),
 (12, 'alessio', 'sartoretto', '2022-02-05', '', 'm', '', 'sartoretto.alessio', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', '', NULL, NULL),
-(13, 'fabio ', 'biscaro', '1822-02-02', '', 'm', '', 'biscaro.fabio', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', '', NULL, NULL),
+(13, 'Fabio ', 'Biscaro', '1822-02-02', '', 'm', '', 'biscaro.fabio', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', 'Treviso', NULL, NULL),
 (14, 'roberto', 'olivotto', '1823-02-08', '', 'm', '', 'olivotto.roberto', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', '', NULL, NULL),
 (16, '4AEE', 'SANFILIPPO', '1000-01-01', '', '', '', '', '', '', '', '', '', '', '', 'Lancenigo', NULL, NULL),
 (17, '4BEE', 'DOMENICALE', '1000-01-01', '', '', '', '', '', '', '', 'Lance', '', '', '', 'Lancenigo', NULL, NULL),
@@ -864,7 +864,6 @@ INSERT INTO `persona` (`id`, `nome`, `cognome`, `datanascita`, `codicefiscale`, 
 (142, 'MARCO', 'CERON', NULL, '', '', '', 'ceron.st.marco@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31038', '', 'ceron.st.marco@maxplanck.edu.it', 'VIA FILIPPO TURATI 42/B', 'PAESE', 'TV', NULL),
 (143, 'QIANG', 'CHEN', NULL, '', '', '', 'chen.st.qiang@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31100', '', 'chen.st.qiang@maxplanck.edu.it', 'BOTTENIGA, 19', 'TREVISO', 'TV', NULL),
 (144, 'FABIO', 'CIPRIOTTO', NULL, '', '', '', 'cipriotto.st.fabio@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31059', '', 'cipriotto.st.fabio@maxplanck.edu.it', 'Via Divisione Alpina Taurinense ', 'ZERO BRANCO', 'TV', NULL),
-(145, 'SEBASTIANO', 'CISIOLA', NULL, '', '', '', 'cisiola.st.sebastiano@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31021', '', 'cisiola.st.sebastiano@maxplanck.edu.it', 'Via Guglielmo Marconi, 103/B', 'MOGLIANO VENETO', 'TV', NULL),
 (146, 'ALESSANDRO', 'COLMELET', NULL, '', '', '', 'colmelet.st.alessandro@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31030', '', 'colmelet.st.alessandro@maxplanck.edu.it', 'Via Don G. Minzoni  n.18', 'CARBONERA', 'TV', NULL),
 (147, 'DAVIDE', 'CORRO', NULL, '', '', '', 'corro.st.davide@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31055', '', 'corro.st.davide@maxplanck.edu.it', 'VIA DEI BRILLI,2/D INT. 2', 'QUINTO DI TREVISO', 'TV', NULL),
 (148, 'ALESSANDRO', 'CORTESE', NULL, '', '', '', 'cortese.st.alessandro@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31027', '', 'cortese.st.alessandro@maxplanck.edu.it', 'Via DEI BOTTERI, 6', 'SPRESIANO', 'TV', NULL),
@@ -1007,7 +1006,8 @@ INSERT INTO `persona` (`id`, `nome`, `cognome`, `datanascita`, `codicefiscale`, 
 (285, 'AYOUB', 'ZOUGGAGH', NULL, '', '', '', 'zouggagh.st.ayoub@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31100', '', 'zouggagh.st.ayoub@maxplanck.edu.it', 'Strada per castagnole n.40', 'TREVISO', 'TV', NULL),
 (286, 'ALESSANDRO', 'ZUCCARELLO', NULL, '', '', '', 'zuccarello.st.alessandro@maxplanck.edu.it', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '31020', '', 'zuccarello.st.alessandro@maxplanck.edu.it', 'VIA G. MARCONI 261/A', 'VILLORBA', 'TV', NULL),
 (290, 'Salvatore', 'Pace', '1999-12-12', 'sazxa', 'm', '234', NULL, NULL, NULL, NULL, '', '', '', '', 'crotone', NULL, NULL),
-(291, 'Luca', 'Sommavilla', '2005-05-24', 'smmlcu05e24c111d', 'M', '3921187606', NULL, NULL, NULL, NULL, '', '', 'lucasomma7@gmail.com', '', 'Treviso', NULL, NULL);
+(291, 'Luca', 'Sommavilla', '2005-05-24', 'smmlcu05e24c111d', 'M', '3921187606', NULL, NULL, NULL, NULL, '', '', 'lucasomma7@gmail.com', '', 'Treviso', NULL, NULL),
+(293, 'Alex', 'Sartori', '1212-12-12', 'alex', 'm', '234', NULL, NULL, NULL, NULL, '', '', '', '', 'treviso', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1038,6 +1038,7 @@ INSERT INTO `persona_ruolo` (`idruolo`, `idpersona`) VALUES
 (2, 0),
 (2, 13),
 (2, 290),
+(2, 293),
 (3, 4),
 (3, 242),
 (3, 291);
@@ -1170,7 +1171,7 @@ ALTER TABLE `tutor_azienda`
 -- AUTO_INCREMENT per la tabella `assegnazione`
 --
 ALTER TABLE `assegnazione`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `classe`
@@ -1182,13 +1183,13 @@ ALTER TABLE `classe`
 -- AUTO_INCREMENT per la tabella `periodo_stage`
 --
 ALTER TABLE `periodo_stage`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=293;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=294;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
