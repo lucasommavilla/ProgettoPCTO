@@ -105,7 +105,7 @@
                                    //$id_coordinatore="".$row['id_docente'];
                               }
                               
-                              echo'<tr id="'.$row['id'].'"><td><a href="classi-dettaglio.php?id='.htmlspecialchars($row["id"]).'"><span data-feather="edit"></span></a></td><td><a href=studenti.php?classe='.$row['sezione'].'><span data-feather="users"></span></a></td><td>'.$row['sezione'].'</td><td>'.$row['anno'].'</td><td>'.$docente.'</td><td>'/*.$id_coordinatore.'</td></tr>'*/;
+                              echo'<tr id="'.$row['id'].'"><td><a href="classi-dettaglio.php?id='.htmlspecialchars($row["id"]).'"><span data-feather="edit"></span></a></td><td><a href=studenti.php?classe='.$row['sezione'].'><span data-feather="users"></span></a></td><td>'.$row['sezione'].'</td><td>'.$row['anno'].'</td><td>'.$docente.'</td>'/*<td>'.$id_coordinatore.'</td></tr>'*/;
       } 
 
 
