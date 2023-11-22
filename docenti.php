@@ -69,7 +69,7 @@ if (isset($_POST["esporta"])) {
                 echo '<th ><input class="btn btn-sm" style="background-color:#252526; color:#ffffff" type="submit" name="ordinaNome" value="Nome"/></th>';
                 echo '<th ><input class="btn btn-sm" style="background-color:#252526; color:white" type="submit" name="ordinaCognome" value="Cognome"/></th>';
                 //echo '<th scope="col"><input class="btn" style="background-color:#252526; color:white" type="submit" name="ordinaDatanascita" value="Data Nascita"/></th>';
-                echo '<th ><input class="btn btn-sm" style="background-color:#252526; color:white" type="submit" name="ordinaCitta" value="Città"/></th>';
+                //echo '<th ><input class="btn btn-sm" style="background-color:#252526; color:white" type="submit" name="ordinaCitta" value="Città"/></th>';
                 //echo '<th scope="col"><input class="btn" style="background-color:#252526; color:white" type="submit" name="ordinaIndirizzo" value="Indirizzo"/></th>';
                 //echo '<th scope="col"><input class="btn" style="background-color:#252526; color:white" type="submit" name="ordinaCodicefiscale" value="Codice Fiscale"/></th>';
                 echo "</tr>";
@@ -85,7 +85,7 @@ if (isset($_POST["esporta"])) {
                         echo '<td>' . htmlspecialchars($row["nome"]) . '</td>';
                         echo '<td>' . htmlspecialchars($row["cognome"]) . '</td>';
                         //echo '<td>' . htmlspecialchars($row["datanascita"]) . '</td>';
-                        echo '<td>' . htmlspecialchars($row["residenza"]) . '</td>';
+                        //echo '<td>' . htmlspecialchars($row["residenza"]) . '</td>';
                         //echo '<td>' . htmlspecialchars($row["indirizzo"]) . '</td>';
                         //echo '<div class="col-sm-2 text-truncate">';
                         //echo '<td>' . htmlspecialchars($row["codicefiscale"]) . '</td>';
