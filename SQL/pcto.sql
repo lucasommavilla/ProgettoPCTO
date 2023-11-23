@@ -799,7 +799,7 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`id`, `nome`, `cognome`, `datanascita`, `codicefiscale`, `sesso`, `cellulare`, `login`, `password`, `al_matricola`, `al_cittadinanza`, `cap`, `telefono`, `email`, `indirizzo`, `residenza`, `provincia`, `tut_idazienda`) VALUES
-(1, 'null', 'null', '1000-01-01', '', '', '', 'adminpcto', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', NULL, '', '', '', '', NULL, NULL),
+(1, 'admin', 'pcto', '1000-01-01', '', '', '', 'adminpcto', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', NULL, '', '', '', '', NULL, NULL),
 (4, 'andrea', 'cestaro', '2002-09-21', '', 'm', '', 'cestaro.andrea', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', '', NULL, NULL),
 (5, 'nicholas', 'darisi', '2022-02-17', '', 'm', '', 'darisi.nicholas', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', '', NULL, NULL),
 (6, 'ruize', 'lin', '2022-02-14', '', 'm', '', 'lin.ruize', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', '', '', '', '', '', NULL, NULL),
