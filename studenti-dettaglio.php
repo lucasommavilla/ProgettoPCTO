@@ -141,15 +141,16 @@
       $stmt->bind_param("sssssssssss", $_POST["datanascita"], $_POST["codicefiscale"], $_POST["residenza"], $_POST["indirizzo"], $_POST["cognome"], $_POST["nome"], $_POST["cellulare"], $_POST["telefono"], $_POST["cap"], $_POST["email"], $sex);
       $stmt->execute();
       $last_id = $conn->insert_id;
-      $sql="INSERT INTO persona_ruolo (idruolo, idpersona) VALUES ('3', ?);";//3 equivale a studente
+      $sql="INSERT INTO persona_ruolo (idruolo, idpersona) VALUES (3, ?);";//3 equivale a studente
       $stmt = $conn->prepare($sql);
       $stmt->bind_param("i", $last_id);
       $stmt->execute();
+
       $sql= "INSERT into classe_studente (idclasse, idpersona) values(?, ?)";
       $stmt = $conn->prepare($sql);
-      $stmt->bind_param("ii",$_POST["slctclasse"], $last_id);
+      $stmt->bind_param("ii", $_POST["slctclasse"], $last_id);
       $stmt->execute();
-      $result = $conn->query($sql);
+      //$result = $conn->query($sql);
       header("location:studenti-dettaglio.php?id=".$last_id); 
     }
   }
