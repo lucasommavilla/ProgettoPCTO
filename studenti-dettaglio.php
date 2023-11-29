@@ -136,9 +136,9 @@
         $sex='F';
       }
       
-      $sql= "INSERT INTO `persona` (`datanascita`, `codicefiscale`, `residenza`, `indirizzo`, `cognome`, `nome`, `cellulare`, `telefono`, `cap`, `email`, `sesso`) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+      $sql= "INSERT INTO `persona` (`datanascita`, `codicefiscale`, `residenza`, `indirizzo`, `cognome`, `nome`, `cellulare`, `login`, `telefono`, `cap`, `email`, `sesso`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
       $stmt = $conn->prepare($sql);
-      $stmt->bind_param("sssssssssss", $_POST["datanascita"], $_POST["codicefiscale"], $_POST["residenza"], $_POST["indirizzo"], $_POST["cognome"], $_POST["nome"], $_POST["cellulare"], $_POST["telefono"], $_POST["cap"], $_POST["email"], $sex);
+      $stmt->bind_param("ssssssssssss", $_POST["datanascita"], $_POST["codicefiscale"], $_POST["residenza"], $_POST["indirizzo"], $_POST["cognome"], $_POST["nome"], $_POST["cellulare"], $_POST["email"], $_POST["telefono"], $_POST["cap"], $_POST["email"], $sex);
       $stmt->execute();
       $last_id = $conn->insert_id;
       $sql="INSERT INTO persona_ruolo (idruolo, idpersona) VALUES (3, ?);";//3 equivale a studente
