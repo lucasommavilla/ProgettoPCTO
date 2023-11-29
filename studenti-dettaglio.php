@@ -123,7 +123,7 @@
     }else {
       //altrimenti inserisco nuovo persona
       // $sql = "INSERT into persona(datanascita, codicefiscale, residenza, indirizzo, cognome, nome, cellulare, telefono, cap, email, sesso) values(?,?,?,?,?,?,?,?,?,?,?)";
-      if($_POST["sesso"]=='m'){
+      /*if($_POST["sesso"]=='m'){
         $sex='M';
       }
       if($_POST["sesso"]=='M'){
@@ -134,7 +134,7 @@
       }
       if($_POST["sesso"]=='f'){
         $sex='F';
-      }
+      }*/
       
       $sql= "INSERT INTO `persona` (`datanascita`, `codicefiscale`, `residenza`, `indirizzo`, `cognome`, `nome`, `cellulare`, `login`, `telefono`, `cap`, `email`, `sesso`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
       $stmt = $conn->prepare($sql);
@@ -338,7 +338,13 @@
               <div class=" mb-3 row">
                   <label class="col-sm-3 col-md-1 col-form-label">Sesso</label>
                   <div class="col-sm-3 col-md-3">
-                      <input type="text" maxlength="1" class="form-control" name="sesso" value="'. $sesso .'">
+
+                  <input type="radio" id="M" name="sesso" value="M">
+                  <label for="M">M</label><br>
+                  <input type="radio" id="F" name="sesso" value="F">
+                  <label for="F">F</label><br>
+
+
                   </div>
                   <label class="col-sm-3 col-md-1 col-form-label"></label>
                   <div class="col-sm-3 col-md-3">
