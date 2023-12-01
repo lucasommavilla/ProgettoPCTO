@@ -51,7 +51,7 @@
       $elimina = $_POST["hidden_elimina"];
 
       if ($elimina && $id != -1) {
-          $sql = "delete from persona_ruolo where idpersona= ?";
+          $sql = "delete from periodo_stage where id= ?";
           $stmt = $conn->prepare($sql);
           $stmt->bind_param("i", $id);
           $stmt->execute();
@@ -61,7 +61,7 @@
           $stmt->bind_param("i", $id);
           $stmt->execute();
 
-          header("location:docenti.php");  
+          header("location:periodo-stage.php");  
       }
   }
   if(isset($_POST["salva"])){
