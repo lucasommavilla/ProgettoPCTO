@@ -58,7 +58,7 @@ if (isset($_POST["elimina"])) {
         $stmt->bind_param("i", $id);
         $stmt->execute();
         //print($stmt->error);
-     //  header("location:classi.php");
+        header("location:classi.php");
     }
 }
 ?>
@@ -113,7 +113,7 @@ if (isset($_POST["salva"])) {
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("iss", $_POST["slct1"], $_POST["sezione"], $_POST["anno"]);
         $stmt->execute();
-        
+        header("location:classi.php");
     }
 }
 function generaDettaglioVisualizzazione($result, $connessione)
